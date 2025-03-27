@@ -540,3 +540,175 @@ struct RecentConversionsView: View {
         return formatter.string(fromByteCount: size)
     }
 }
+
+// Ana içerik için view yapıları
+struct FileSelectionCard: View {
+    let fileName: String?
+    let onSelect: () -> Void
+    let previewImage: NSImage?
+    let isLoading: Bool
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            // Dosya seçim başlığı
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Dosya Seçimi")
+                        .font(.headline)
+                    Text("Dönüştürmek istediğiniz dosyayı seçin")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+            }
+            
+            // Dosya seçim butonu
+            Button(action: onSelect) {
+                HStack {
+                    Image(systemName: fileName == nil ? "doc.badge.plus" : "doc.fill")
+                        .font(.title2)
+                        .foregroundColor(fileName == nil ? .blue : .white)
+                    
+                    Text(fileName ?? "Dosya Seçin")
+                        .lineLimit(1)
+                        .truncationMode(.middle)
+                    
+                    Spacer()
+                    
+                    if fileName != nil {
+                        Image(systemName: "pencil.circle.fill")
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                .background(fileName == nil ? Color.blue.opacity(0.1) : Color.blue)
+                .foregroundColor(fileName == nil ? .blue : .white)
+                .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+            
+            // Önizleme
+            if let image = previewImage {
+                Image(nsImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxHeight: 200)
+                    .cornerRadius(12)
+                    .shadow(radius: 2)
+            } else if isLoading {
+                ProgressView()
+                    .frame(maxHeight: 200)
+            }
+        }
+        .padding()
+        .background(Color(.controlBackgroundColor))
+        .cornerRadius(16)
+    }
+}
+
+struct ConversionOptionsCard: View {
+    let inputFormat: String
+    @Binding var selectedFormat: String
+    let supportedFormats: [String]
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            // Başlık
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Çıktı Formatı")
+                        .font(.headline)
+                    Text("Dönüştürme formatını seçin")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                Spacer()
+            }
+            
+            // Format seçici
+            Picker("Format", selection: $selectedFormat) {
+                ForEach(supportedFormats, id: \.self) { format in
+                    Text(format).tag(format)
+                }
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            
+            // Dönüşüm gösterimi
+            HStack {
+                Label {
+                    Text(inputFormat)
+                        .fontWeight(.medium)
+                } icon: {
+                    Image(systemName: "doc.fill")
+                        .foregroundColor(.blue)
+                }
+                
+                Image(systemName: "arrow.right")
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal)
+                
+                Label {
+                    Text(selectedFormat)
+                        .fontWeight(.medium)
+                } icon: {
+                    Image(systemName: "doc.fill")
+                        .foregroundColor(.red)
+                }
+            }
+            .padding(8)
+            .background(Color(.textBackgroundColor))
+            .cornerRadius(8)
+        }
+        .padding()
+        .background(Color(.controlBackgroundColor))
+        .cornerRadius(16)
+    }
+}
+
+struct ConversionButton: View {
+    let isConverting: Bool
+    let progress: Double
+    let action: () -> Void
+    
+    var body: some View {
+        VStack(spacing: 12) {
+            Button(action: action) {
+                HStack {
+                    Spacer()
+                    if isConverting {
+                        ProgressView()
+                            .scaleEffect(0.8)
+                            .padding(.trailing, 8)
+                        Text("Dönüştürülüyor...")
+                    } else {
+                        Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                            .font(.title3)
+                            .padding(.trailing, 8)
+                        Text("Dönüştür")
+                            .fontWeight(.semibold)
+                    }
+                    Spacer()
+                }
+                .padding(.vertical, 16)
+                .background(isConverting ? Color.blue.opacity(0.7) : Color.blue)
+                .foregroundColor(.white)
+                .cornerRadius(12)
+            }
+            .buttonStyle(.plain)
+            .disabled(isConverting)
+            
+            if isConverting {
+                VStack(spacing: 8) {
+                    ProgressView(value: progress)
+                        .progressViewStyle(LinearProgressViewStyle())
+                    Text("\(Int(progress * 100))%")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .padding()
+        .background(Color(.controlBackgroundColor))
+        .cornerRadius(16)
+    }
+}
