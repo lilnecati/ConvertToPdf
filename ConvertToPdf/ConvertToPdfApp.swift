@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct ConvertToPdfApp: App {
+    init() {
+        // Metal uyarılarını devre dışı bırak
+        UserDefaults.standard.set(false, forKey: "MTL_DEBUG_LAYER_ENABLED")
+        UserDefaults.standard.set(false, forKey: "MTL_SHADER_VALIDATION_ENABLED")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
+        .windowStyle(HiddenTitleBarWindowStyle()) // Pencere stilini modernleştir
     }
 }
