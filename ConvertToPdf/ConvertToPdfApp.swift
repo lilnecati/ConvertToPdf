@@ -1,6 +1,6 @@
 //
-//  ConvertToApp.swift
-//  ConvertTo
+//  ConvertToPdfApp.swift
+//  ConvertToPdf
 //
 //  Created by Necati Yıldırım on 27.03.2025.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct ConvertToApp: App {
+struct ConvertToPdfApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		A464AF0E2D9552CB005FD420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A464AEF42D9552CA005FD420 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A464AEFB2D9552CA005FD420;
+			remoteInfo = ConvertToPdf;
+		};
+		A464AF182D9552CB005FD420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A464AEF42D9552CA005FD420 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A464AEFB2D9552CA005FD420;
+			remoteInfo = ConvertToPdf;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A464AEFC2D9552CA005FD420 /* ConvertToPdf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ConvertToPdf.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A464AF0D2D9552CB005FD420 /* ConvertToPdfTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvertToPdfTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A464AF172D9552CB005FD420 /* ConvertToPdfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConvertToPdfUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A464AEFE2D9552CA005FD420 /* ConvertToPdf */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ConvertToPdf;
+			sourceTree = "<group>";
+		};
+		A464AF102D9552CB005FD420 /* ConvertToPdfTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ConvertToPdfTests;
+			sourceTree = "<group>";
+		};
+		A464AF1A2D9552CB005FD420 /* ConvertToPdfUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ConvertToPdfUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A464AEF92D9552CA005FD420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A464AF0A2D9552CB005FD420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A464AF142D9552CB005FD420 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A464AEF32D9552CA005FD420 = {
+			isa = PBXGroup;
+			children = (
+				A464AEFE2D9552CA005FD420 /* ConvertToPdf */,
+				A464AF102D9552CB005FD420 /* ConvertToPdfTests */,
+				A464AF1A2D9552CB005FD420 /* ConvertToPdfUITests */,
+				A464AEFD2D9552CA005FD420 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A464AEFD2D9552CA005FD420 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A464AEFC2D9552CA005FD420 /* ConvertToPdf.app */,
+				A464AF0D2D9552CB005FD420 /* ConvertToPdfTests.xctest */,
+				A464AF172D9552CB005FD420 /* ConvertToPdfUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A464AEFB2D9552CA005FD420 /* ConvertToPdf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A464AF212D9552CB005FD420 /* Build configuration list for PBXNativeTarget "ConvertToPdf" */;
+			buildPhases = (
+				A464AEF82D9552CA005FD420 /* Sources */,
+				A464AEF92D9552CA005FD420 /* Frameworks */,
+				A464AEFA2D9552CA005FD420 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A464AEFE2D9552CA005FD420 /* ConvertToPdf */,
+			);
+			name = ConvertToPdf;
+			packageProductDependencies = (
+			);
+			productName = ConvertToPdf;
+			productReference = A464AEFC2D9552CA005FD420 /* ConvertToPdf.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A464AF0C2D9552CB005FD420 /* ConvertToPdfTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A464AF242D9552CB005FD420 /* Build configuration list for PBXNativeTarget "ConvertToPdfTests" */;
+			buildPhases = (
+				A464AF092D9552CB005FD420 /* Sources */,
+				A464AF0A2D9552CB005FD420 /* Frameworks */,
+				A464AF0B2D9552CB005FD420 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A464AF0F2D9552CB005FD420 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A464AF102D9552CB005FD420 /* ConvertToPdfTests */,
+			);
+			name = ConvertToPdfTests;
+			packageProductDependencies = (
+			);
+			productName = ConvertToPdfTests;
+			productReference = A464AF0D2D9552CB005FD420 /* ConvertToPdfTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A464AF162D9552CB005FD420 /* ConvertToPdfUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A464AF272D9552CB005FD420 /* Build configuration list for PBXNativeTarget "ConvertToPdfUITests" */;
+			buildPhases = (
+				A464AF132D9552CB005FD420 /* Sources */,
+				A464AF142D9552CB005FD420 /* Frameworks */,
+				A464AF152D9552CB005FD420 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A464AF192D9552CB005FD420 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A464AF1A2D9552CB005FD420 /* ConvertToPdfUITests */,
+			);
+			name = ConvertToPdfUITests;
+			packageProductDependencies = (
+			);
+			productName = ConvertToPdfUITests;
+			productReference = A464AF172D9552CB005FD420 /* ConvertToPdfUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A464AEF42D9552CA005FD420 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					A464AEFB2D9552CA005FD420 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					A464AF0C2D9552CB005FD420 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A464AEFB2D9552CA005FD420;
+					};
+					A464AF162D9552CB005FD420 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = A464AEFB2D9552CA005FD420;
+					};
+				};
+			};
+			buildConfigurationList = A464AEF72D9552CA005FD420 /* Build configuration list for PBXProject "ConvertToPdf" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A464AEF32D9552CA005FD420;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A464AEFD2D9552CA005FD420 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A464AEFB2D9552CA005FD420 /* ConvertToPdf */,
+				A464AF0C2D9552CB005FD420 /* ConvertToPdfTests */,
+				A464AF162D9552CB005FD420 /* ConvertToPdfUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A464AEFA2D9552CA005FD420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A464AF0B2D9552CB005FD420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A464AF152D9552CB005FD420 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A464AEF82D9552CA005FD420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A464AF092D9552CB005FD420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A464AF132D9552CB005FD420 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A464AF0F2D9552CB005FD420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A464AEFB2D9552CA005FD420 /* ConvertToPdf */;
+			targetProxy = A464AF0E2D9552CB005FD420 /* PBXContainerItemProxy */;
+		};
+		A464AF192D9552CB005FD420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A464AEFB2D9552CA005FD420 /* ConvertToPdf */;
+			targetProxy = A464AF182D9552CB005FD420 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A464AF1F2D9552CB005FD420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A464AF202D9552CB005FD420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		A464AF222D9552CB005FD420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ConvertToPdf/ConvertToPdf.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ConvertToPdf/Preview Content\"";
+				DEVELOPMENT_TEAM = KX8WZPADF5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Convert.ConvertToPdf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A464AF232D9552CB005FD420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ConvertToPdf/ConvertToPdf.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ConvertToPdf/Preview Content\"";
+				DEVELOPMENT_TEAM = KX8WZPADF5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Convert.ConvertToPdf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A464AF252D9552CB005FD420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KX8WZPADF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Convert.ConvertToPdfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConvertToPdf.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ConvertToPdf";
+			};
+			name = Debug;
+		};
+		A464AF262D9552CB005FD420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KX8WZPADF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Convert.ConvertToPdfTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ConvertToPdf.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ConvertToPdf";
+			};
+			name = Release;
+		};
+		A464AF282D9552CB005FD420 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KX8WZPADF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Convert.ConvertToPdfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ConvertToPdf;
+			};
+			name = Debug;
+		};
+		A464AF292D9552CB005FD420 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KX8WZPADF5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Convert.ConvertToPdfUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ConvertToPdf;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A464AEF72D9552CA005FD420 /* Build configuration list for PBXProject "ConvertToPdf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A464AF1F2D9552CB005FD420 /* Debug */,
+				A464AF202D9552CB005FD420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A464AF212D9552CB005FD420 /* Build configuration list for PBXNativeTarget "ConvertToPdf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A464AF222D9552CB005FD420 /* Debug */,
+				A464AF232D9552CB005FD420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A464AF242D9552CB005FD420 /* Build configuration list for PBXNativeTarget "ConvertToPdfTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A464AF252D9552CB005FD420 /* Debug */,
+				A464AF262D9552CB005FD420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A464AF272D9552CB005FD420 /* Build configuration list for PBXNativeTarget "ConvertToPdfUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A464AF282D9552CB005FD420 /* Debug */,
+				A464AF292D9552CB005FD420 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A464AEF42D9552CA005FD420 /* Project object */;
+}
