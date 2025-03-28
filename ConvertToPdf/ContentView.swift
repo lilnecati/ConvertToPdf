@@ -264,6 +264,9 @@ class BatchConversionManager: ObservableObject {
                             fileName: url.lastPathComponent,
                             fileURL: url
                         )
+                        
+                        // Ses bildirimi çal
+                        SoundHelper.shared.playConversionCompleteSound()
                     } else {
                         self.jobs[self.currentJobIndex].status = .failed
                     }
@@ -430,29 +433,18 @@ struct BatchConversionView: View {
     var body: some View {
         VStack(spacing: 16) {
             // Başlık
-                                    HStack {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Dönüştürme")
-                        .font(.headline)
-                    Text("Birden fazla dosyayı aynı anda dönüştürün")
-                        .font(.caption)
-                                            .foregroundColor(.secondary)
+            HStack {
+                HStack(spacing: 10) {
+                    Image(systemName: "doc.fill.badge.plus")
+                        .font(.system(size: 24, weight: .bold))
+                        .foregroundColor(.blue)
+                    Text("ConvertToPdf")
+                        .font(.system(size: 28, weight: .bold, design: .rounded))
                 }
-                Spacer()
                 
-                // İşlem kontrolleri
-                HStack(spacing: 12) {
-                    Button(action: { batchManager.clearCompletedJobs() }) {
-                        Label("Tamamlananları Temizle", systemImage: "checkmark.circle")
-                    }
-                    .disabled(batchManager.jobs.filter { $0.status == .completed }.isEmpty)
-                    
-                    Button(action: { batchManager.clearAllJobs() }) {
-                        Label("Tümünü Temizle", systemImage: "trash")
-                    }
-                    .disabled(batchManager.jobs.isEmpty)
-                }
+                Spacer()
             }
+            .padding(.horizontal)
             
             // Dosya bırakma alanı
             DragAndDropView(
@@ -514,7 +506,7 @@ struct BatchConversionView: View {
                     Text("Çıktı Formatı")
                         .font(.headline)
                     Text("Dönüştürme formatını seçin")
-                                    .font(.caption)
+                        .font(.caption)
                         .foregroundColor(.secondary)
                 }
                 
@@ -586,8 +578,8 @@ struct BatchConversionView: View {
                         // İptal butonu
                         Button(action: {
                             batchManager.cancelProcessing()
-                                    }) {
-                                        HStack {
+                        }) {
+                            HStack {
                                 Image(systemName: "xmark.circle.fill")
                                 Text("İptal Et")
                             }
@@ -607,14 +599,14 @@ struct BatchConversionView: View {
                     }) {
                         HStack {
                             if batchManager.isProcessing {
-                                                ProgressView()
-                                                    .scaleEffect(0.8)
-                                                    .padding(.trailing, 8)
-                                                Text("Dönüştürülüyor...")
-                                            } else {
-                                                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                                    .padding(.trailing, 8)
+                                Text("Dönüştürülüyor...")
+                            } else {
+                                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                                 Text("Toplu Dönüştürmeyi Başlat")
-                                                    .fontWeight(.semibold)
+                                    .fontWeight(.semibold)
                             }
                         }
                         .padding(.vertical, 12)
@@ -724,7 +716,7 @@ struct DuplicateFileErrorView: View {
                     Text("Tamam")
                         .fontWeight(.medium)
                         .frame(width: 120)
-                                        .padding(.vertical, 12)
+                        .padding(.vertical, 12)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
@@ -872,6 +864,7 @@ struct ContentView: View {
     @ObservedObject private var recentConversionsManager = RecentConversionsManager()
     @State private var selectedConversionType: String = "PDF"
     @State private var showSettings = false
+    @State private var showAppSettings = false
     
     // Kurulu bileşenler için state değişkenleri
     @State private var hasImageMagick = false
@@ -900,27 +893,16 @@ struct ContentView: View {
                 VStack(spacing: 24) {
                     // Header
                     HStack {
-                        Text("ConvertToPdf")
-                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                        HStack(spacing: 10) {
+                            Image(systemName: "doc.fill.badge.plus")
+                                .font(.system(size: 24, weight: .bold))
+                                .foregroundColor(.blue)
+                            Text("ConvertToPdf")
+                                .font(.system(size: 28, weight: .bold, design: .rounded))
+                        }
                         
                         Spacer()
                         
-                        Button(action: {
-                            showSettings = true
-                        }) {
-                            HStack(spacing: 8) {
-                                Image(systemName: "shippingbox.fill")
-                                    .font(.system(size: 16))
-                                Text("Gereksinimler")
-                                    .font(.system(size: 14, weight: .medium))
-                            }
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color(.controlBackgroundColor))
-                            .cornerRadius(8)
-                        }
-                        .buttonStyle(.plain)
-                        .help("Sistem gereksinimleri ve kurulu bileşenler")
                     }
                     .padding(.horizontal)
                     
@@ -951,6 +933,21 @@ struct ContentView: View {
                     .buttonStyle(.plain)
                     .help("Sistem gereksinimleri ve kurulu bileşenler")
                 }
+                
+                ToolbarItem(placement: .navigation) {
+                    Button(action: {
+                        showAppSettings = true
+                    }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "gear")
+                                .font(.system(size: 12))
+                            Text("Ayarlar")
+                                .font(.system(size: 11))
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .help("Uygulama ayarları")
+                }
             }
             
             // Sağ taraf - Son dönüşümler
@@ -976,6 +973,9 @@ struct ContentView: View {
             }
             .sheet(isPresented: $showSettings) {
                 settingsView
+            }
+            .sheet(isPresented: $showAppSettings) {
+                AppSettingsView()
             }
             .onAppear {
                 checkInstalledSoftware()
