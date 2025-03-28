@@ -219,7 +219,7 @@ class BatchConversionManager: ObservableObject {
         // Aynı formata dönüştürme kontrolü
         if inputURL.pathExtension.lowercased() == outputFormat.lowercased() {
             DispatchQueue.main.async {
-                self.showErrorMessage("\"\(inputURL.lastPathComponent)\" dosyası zaten \(outputFormat.uppercased()) formatında. Farklı bir format seçin.")
+                self.showErrorMessage("\"\(inputURL.lastPathComponent)\" dosyı zaten \(outputFormat.uppercased()) formatında. Farklı bir format seçin.")
                 self.jobs[self.currentJobIndex].status = .failed
                 self.currentJobIndex += 1
                 self.processNextJob(outputFormat: outputFormat, completion: completion)
@@ -430,13 +430,13 @@ struct BatchConversionView: View {
     var body: some View {
         VStack(spacing: 16) {
             // Başlık
-            HStack {
+                                    HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     Text("Dönüştürme")
                         .font(.headline)
                     Text("Birden fazla dosyayı aynı anda dönüştürün")
                         .font(.caption)
-                        .foregroundColor(.secondary)
+                                            .foregroundColor(.secondary)
                 }
                 Spacer()
                 
@@ -514,7 +514,7 @@ struct BatchConversionView: View {
                     Text("Çıktı Formatı")
                         .font(.headline)
                     Text("Dönüştürme formatını seçin")
-                        .font(.caption)
+                                    .font(.caption)
                         .foregroundColor(.secondary)
                 }
                 
@@ -586,8 +586,8 @@ struct BatchConversionView: View {
                         // İptal butonu
                         Button(action: {
                             batchManager.cancelProcessing()
-                        }) {
-                            HStack {
+                                    }) {
+                                        HStack {
                                 Image(systemName: "xmark.circle.fill")
                                 Text("İptal Et")
                             }
@@ -607,14 +607,14 @@ struct BatchConversionView: View {
                     }) {
                         HStack {
                             if batchManager.isProcessing {
-                                ProgressView()
-                                    .scaleEffect(0.8)
-                                    .padding(.trailing, 8)
-                                Text("Dönüştürülüyor...")
-                            } else {
-                                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                                                ProgressView()
+                                                    .scaleEffect(0.8)
+                                                    .padding(.trailing, 8)
+                                                Text("Dönüştürülüyor...")
+                                            } else {
+                                                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                                 Text("Toplu Dönüştürmeyi Başlat")
-                                    .fontWeight(.semibold)
+                                                    .fontWeight(.semibold)
                             }
                         }
                         .padding(.vertical, 12)
@@ -724,7 +724,7 @@ struct DuplicateFileErrorView: View {
                     Text("Tamam")
                         .fontWeight(.medium)
                         .frame(width: 120)
-                        .padding(.vertical, 12)
+                                        .padding(.vertical, 12)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
@@ -808,8 +808,8 @@ struct JobRowView: View {
                         ProgressView(value: job.progress)
                             .frame(width: 80)
                         Text("\(Int(job.progress * 100))%")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
                             .frame(width: 40, alignment: .trailing)
                     }
                 case .completed:
@@ -899,9 +899,30 @@ struct ContentView: View {
                 
                 VStack(spacing: 24) {
                     // Header
-                    Text("ConvertToPdf")
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .padding(.top)
+                    HStack {
+                        Text("ConvertToPdf")
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            showSettings = true
+                        }) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "shippingbox.fill")
+                                    .font(.system(size: 16))
+                                Text("Gereksinimler")
+                                    .font(.system(size: 14, weight: .medium))
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .background(Color(.controlBackgroundColor))
+                            .cornerRadius(8)
+                        }
+                        .buttonStyle(.plain)
+                        .help("Sistem gereksinimleri ve kurulu bileşenler")
+                    }
+                    .padding(.horizontal)
                     
                     // Toplu dönüştürme kartı
                     BatchConversionView(
@@ -915,6 +936,22 @@ struct ContentView: View {
                 }
             }
             .frame(minWidth: 450, maxWidth: 650, minHeight: 500)
+            .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    Button(action: {
+                        showSettings = true
+                    }) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "shippingbox.fill")
+                                .font(.system(size: 12))
+                            Text("Gereksinimler")
+                                .font(.system(size: 11))
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .help("Sistem gereksinimleri ve kurulu bileşenler")
+                }
+            }
             
             // Sağ taraf - Son dönüşümler
             RecentConversionsView(
@@ -927,31 +964,21 @@ struct ContentView: View {
             .frame(minWidth: 250)
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: {
-                    showSettings = true
-                }) {
-                    Label("Ayarlar", systemImage: "gear")
-                }
-                .help("Sistem ayarları ve kurulu bileşenler")
+            .alert(isPresented: $conversionVM.showError) {
+                Alert(
+                    title: Text("Hata"),
+                    message: Text(conversionVM.errorMessage ?? "Bilinmeyen bir hata oluştu"),
+                    dismissButton: .default(Text("Tamam"))
+                )
             }
-        }
-        .alert(isPresented: $conversionVM.showError) {
-            Alert(
-                title: Text("Hata"),
-                message: Text(conversionVM.errorMessage ?? "Bilinmeyen bir hata oluştu"),
-                dismissButton: .default(Text("Tamam"))
-            )
-        }
-        .sheet(isPresented: $conversionVM.showConversionSuccess) {
-            ConversionSuccessView(fileURL: conversionVM.convertedFileURL)
-        }
-        .sheet(isPresented: $showSettings) {
-            settingsView
-        }
-        .onAppear {
-            checkInstalledSoftware()
+            .sheet(isPresented: $conversionVM.showConversionSuccess) {
+                ConversionSuccessView(fileURL: conversionVM.convertedFileURL)
+            }
+            .sheet(isPresented: $showSettings) {
+                settingsView
+            }
+            .onAppear {
+                checkInstalledSoftware()
         }
     }
     
@@ -970,9 +997,10 @@ struct ContentView: View {
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var installInfo = InstallationInfo()
+    @State private var selectedTab = 0
     
     var body: some View {
-        VStack(spacing: 25) {
+        VStack(spacing: 0) {
             // Header
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
@@ -993,97 +1021,384 @@ struct SettingsView: View {
                 }
                 .buttonStyle(.plain)
             }
-            .padding(.horizontal)
+            .padding()
+            .background(Color(.windowBackgroundColor))
             
-            // Bileşen durum kartları
-            HStack(spacing: 20) {
-                // LibreOffice
-                ComponentStatusCard(
-                    title: "LibreOffice",
-                    description: "Office dosyalarını dönüştürmek için gerekli",
-                    isInstalled: installInfo.libreOfficeInstalled,
-                    iconName: "doc.fill",
-                    accentColor: .blue
-                )
-                
-                // Tesseract OCR
-                ComponentStatusCard(
-                    title: "Tesseract OCR",
-                    description: "Metin tanıma işlemleri için gerekli",
-                    isInstalled: installInfo.tesseractInstalled,
-                    iconName: "text.viewfinder",
-                    accentColor: .purple
-                )
-                
-                // ImageMagick
-                ComponentStatusCard(
-                    title: "ImageMagick",
-                    description: "Görsel işleme için gerekli",
-                    isInstalled: installInfo.imageMagickInstalled, 
-                    iconName: "wand.and.stars",
-                    accentColor: .orange
-                )
+            // Tab Seçici
+            HStack(spacing: 0) {
+                ForEach(["Durum", "Kurulum"], id: \.self) { tab in
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 0.2)) {
+                            selectedTab = tab == "Durum" ? 0 : 1
+                        }
+                    }) {
+                        VStack(spacing: 4) {
+                            HStack(spacing: 6) {
+                                Image(systemName: tab == "Durum" ? "gauge.medium" : "wrench.and.screwdriver.fill")
+                                    .font(.system(size: 14))
+                                Text(tab)
+                                    .font(.system(size: 14, weight: .medium))
+                            }
+                            .padding(.vertical, 8)
+                            .padding(.horizontal, 16)
+                            
+                            Rectangle()
+                                .fill(selectedTab == (tab == "Durum" ? 0 : 1) ? Color.blue : Color.clear)
+                                .frame(height: 2)
+                        }
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundColor(selectedTab == (tab == "Durum" ? 0 : 1) ? .blue : .secondary)
+                }
             }
             .padding(.horizontal)
+            .background(Color(.controlBackgroundColor))
             
-            if !installInfo.allInstalled {
-                // Uyarı banner
-                HStack(spacing: 12) {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundColor(.orange)
-                    Text("Eksik bileşenler bazı dönüştürme işlemlerini etkileyebilir")
-                    .foregroundColor(.secondary)
-                }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                .background(Color.orange.opacity(0.1))
-                .cornerRadius(10)
-                    .padding(.horizontal)
+            // İçerik
+            ZStack {
+                // Durum Sayfası
+                if selectedTab == 0 {
+                    ScrollView {
+                        VStack(spacing: 20) {
+                            // Genel Durum Kartı
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text("Genel Durum")
+                                    .font(.headline)
+                                
+                                HStack(spacing: 16) {
+                                    // Kurulu Bileşenler
+                                    VStack(spacing: 8) {
+                                        Text("\(installInfo.allInstalled ? "3" : installInfo.libreOfficeInstalled && installInfo.tesseractInstalled ? "2" : installInfo.libreOfficeInstalled || installInfo.tesseractInstalled ? "1" : "0")/3")
+                                            .font(.system(size: 24, weight: .bold))
+                                        Text("Kurulu\nBileşen")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color(.textBackgroundColor))
+                                    .cornerRadius(12)
+                                    
+                                    // Durum
+                                    VStack(spacing: 8) {
+                                        Image(systemName: installInfo.allInstalled ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(installInfo.allInstalled ? .green : .orange)
+                                        Text(installInfo.allInstalled ? "Hazır" : "Eksik\nBileşen")
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
+                                            .multilineTextAlignment(.center)
+                                    }
+                                    .frame(maxWidth: .infinity)
+                                    .padding()
+                                    .background(Color(.textBackgroundColor))
+                                    .cornerRadius(12)
+                                }
+                            }
+                            .padding()
+                            .background(Color(.controlBackgroundColor))
+                            .cornerRadius(16)
+                            
+                            // Bileşen durum kartları
+                            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 16) {
+                                ComponentStatusCard(
+                    title: "LibreOffice",
+                                    description: "Office dosyalarını dönüştürmek için gerekli",
+                    isInstalled: installInfo.libreOfficeInstalled,
+                                    iconName: "doc.fill",
+                                    accentColor: .blue
+                )
                 
-                    // Kurulum komutları
-                VStack(alignment: .leading, spacing: 16) {
-                    Text("Kurulum Komutları")
-                        .font(.headline)
-                        .padding(.bottom, 4)
-                    
-                    if !installInfo.libreOfficeInstalled {
-                        InstallCommandView(
-                            title: "LibreOffice",
-                            command: "brew install --cask libreoffice",
-                            iconName: "doc.fill",
-                            color: .blue
-                        )
+                                ComponentStatusCard(
+                    title: "Tesseract OCR",
+                                    description: "Metin tanıma işlemleri için gerekli",
+                    isInstalled: installInfo.tesseractInstalled,
+                                    iconName: "text.viewfinder",
+                                    accentColor: .purple
+                )
+                
+                                ComponentStatusCard(
+                    title: "ImageMagick",
+                                    description: "Görsel işleme için gerekli",
+                    isInstalled: installInfo.imageMagickInstalled, 
+                                    iconName: "wand.and.stars",
+                                    accentColor: .orange
+                                )
+                                
+                                // Yardım Kartı
+                                VStack(alignment: .leading, spacing: 16) {
+                                    HStack {
+                                        Image(systemName: "questionmark.circle.fill")
+                                            .font(.system(size: 24))
+                                            .foregroundColor(.blue)
+                                            .frame(width: 48, height: 48)
+                                            .background(Color.blue.opacity(0.1))
+                                            .cornerRadius(12)
+                                        
+                                        Spacer()
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 4) {
+                                        Text("Nasıl Kurulur?")
+                                            .font(.headline)
+                                        Text("Kurulum talimatları için 'Kurulum' sekmesine geçin")
+                                            .font(.caption)
+                    .foregroundColor(.secondary)
+                                            .lineLimit(2)
+                                    }
+                                    
+                                    Button(action: {
+                                        withAnimation {
+                                            selectedTab = 1
+                                        }
+                                    }) {
+                                        Text("Kurulum Sayfasına Git")
+                                            .font(.caption)
+                                            .fontWeight(.medium)
+                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 6)
+                                            .background(Color.blue.opacity(0.1))
+                                            .foregroundColor(.blue)
+                                            .cornerRadius(8)
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                                .padding()
+                                .background(Color(.controlBackgroundColor))
+                                .cornerRadius(16)
+                            }
+                        }
+                        .padding()
                     }
-                    
-                    if !installInfo.tesseractInstalled {
-                        InstallCommandView(
-                            title: "Tesseract OCR",
-                            command: "brew install tesseract tesseract-lang",
-                            iconName: "text.viewfinder",
-                            color: .purple
-                        )
-                    }
-                    
-                    if !installInfo.imageMagickInstalled {
-                        InstallCommandView(
-                            title: "ImageMagick",
-                            command: "brew install imagemagick",
-                            iconName: "wand.and.stars",
-                            color: .orange
-                        )
+                }
+                
+                // Kurulum Sayfası
+                if selectedTab == 1 {
+                    ScrollView {
+                        VStack(spacing: 24) {
+                            // Kurulum Özeti
+                            VStack(alignment: .leading, spacing: 16) {
+                                Text("Kurulum Adımları")
+                                    .font(.headline)
+                                
+                                VStack(spacing: 0) {
+                                    ForEach(["Homebrew", "LibreOffice", "Tesseract OCR", "ImageMagick"], id: \.self) { component in
+                                        HStack(spacing: 12) {
+                                            Circle()
+                                                .fill(Color.blue)
+                                                .frame(width: 8, height: 8)
+                                            
+                                            Text(component)
+                                                .font(.system(.subheadline))
+                                            
+                                            Spacer()
+                                            
+                                            Text(component == "Homebrew" ? "Ön Koşul" : "Bileşen")
+                                                .font(.caption)
+                                                .foregroundColor(.secondary)
+                                                .padding(.horizontal, 8)
+                                                .padding(.vertical, 4)
+                                                .background(Color(.textBackgroundColor))
+                                                .cornerRadius(4)
+                                        }
+                                        .padding(.vertical, 12)
+                                        
+                                        if component != "ImageMagick" {
+                                            Divider()
+                                        }
                     }
                 }
                 .padding()
-                .background(Color(.controlBackgroundColor))
-                .cornerRadius(12)
+                                .background(Color(.textBackgroundColor))
+                                .cornerRadius(12)
+                            }
+                            .padding()
+                            .background(Color(.controlBackgroundColor))
+                            .cornerRadius(16)
+                            
+                            // Kurulum talimatları
+                            VStack(spacing: 24) {
+                                InstallationSection(
+                                    title: "1. Homebrew Kurulumu",
+                                    description: "Öncelikle Homebrew paket yöneticisinin kurulu olması gerekiyor.",
+                                    steps: [
+                                        InstallationStep(
+                                            title: "Terminal'i açın",
+                                            command: nil,
+                                            detail: "Uygulamalar > Diğer > Terminal"
+                                        ),
+                                        InstallationStep(
+                                            title: "Homebrew kurulum komutunu çalıştırın",
+                                            command: "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\"",
+                                            detail: "Kurulum sırasında şifreniz istenebilir"
+                                        ),
+                                        InstallationStep(
+                                            title: "Kurulumu doğrulayın",
+                                            command: "brew --version",
+                                            detail: "Versiyon numarasını görüyorsanız kurulum başarılı"
+                                        )
+                                    ]
+                                )
+                                
+                                InstallationSection(
+                                    title: "2. LibreOffice Kurulumu",
+                                    description: "Office belgelerini dönüştürmek için gerekli",
+                                    steps: [
+                                        InstallationStep(
+                                            title: "LibreOffice'i yükleyin",
+                                            command: "brew install --cask libreoffice",
+                                            detail: "İndirme ve kurulum birkaç dakika sürebilir"
+                                        ),
+                                        InstallationStep(
+                                            title: "Kurulumu doğrulayın",
+                                            command: "libreoffice --version",
+                                            detail: "Versiyon bilgisini görüyorsanız kurulum başarılı"
+                                        )
+                                    ]
+                                )
+                                
+                                InstallationSection(
+                                    title: "3. Tesseract OCR Kurulumu",
+                                    description: "Görüntülerden metin çıkarmak için gerekli",
+                                    steps: [
+                                        InstallationStep(
+                                            title: "Tesseract'ı yükleyin",
+                                            command: "brew install tesseract tesseract-lang",
+                                            detail: "Dil paketleri de otomatik yüklenecek"
+                                        ),
+                                        InstallationStep(
+                                            title: "Kurulumu doğrulayın",
+                                            command: "tesseract --version",
+                                            detail: "Versiyon bilgisini görüyorsanız kurulum başarılı"
+                                        )
+                                    ]
+                                )
+                                
+                                InstallationSection(
+                                    title: "4. ImageMagick Kurulumu",
+                                    description: "Görsel işleme ve dönüştürme için gerekli",
+                                    steps: [
+                                        InstallationStep(
+                                            title: "ImageMagick'i yükleyin",
+                                            command: "brew install imagemagick",
+                                            detail: "Kurulum birkaç dakika sürebilir"
+                                        ),
+                                        InstallationStep(
+                                            title: "Kurulumu doğrulayın",
+                                            command: "convert --version",
+                                            detail: "Versiyon bilgisini görüyorsanız kurulum başarılı"
+                                        )
+                                    ]
+                                )
+                            }
+                        }
+        .padding()
+    }
+}
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+            // Alt bilgi
+            if selectedTab == 1 {
+                VStack(spacing: 8) {
+                    Text("Not: Tüm kurulumlar tamamlandıktan sonra uygulamayı yeniden başlatın.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    
+                    Button(action: {
+                        NSWorkspace.shared.open(URL(string: "https://brew.sh")!)
+                    }) {
+                        Text("Homebrew web sitesini ziyaret et")
+                            .font(.caption)
+                            .foregroundColor(.blue)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .padding(.vertical, 16)
                 .padding(.horizontal)
+                .background(Color(.controlBackgroundColor))
+            }
+        }
+        .frame(width: 750, height: 600)
+        .background(Color(.windowBackgroundColor))
+    }
+}
+
+struct InstallationSection: View {
+    let title: String
+    let description: String
+    let steps: [InstallationStep]
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            // Başlık
+            VStack(alignment: .leading, spacing: 4) {
+            Text(title)
+                    .font(.headline)
+                Text(description)
+                .font(.subheadline)
+                    .foregroundColor(.secondary)
             }
             
-            Spacer()
+            // Adımlar
+            VStack(alignment: .leading, spacing: 12) {
+                ForEach(steps, id: \.title) { step in
+                    InstallationStepView(step: step)
+                }
+            }
         }
-        .frame(width: 750, height: 500)
-        .padding(.vertical)
-        .background(Color(.windowBackgroundColor))
+        .padding()
+        .background(Color(.controlBackgroundColor))
+        .cornerRadius(12)
+    }
+}
+
+struct InstallationStep: Identifiable {
+    var id: String { title }
+    let title: String
+    let command: String?
+    let detail: String
+}
+
+struct InstallationStepView: View {
+    let step: InstallationStep
+    @State private var isCopied = false
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(step.title)
+                .font(.system(.subheadline, weight: .medium))
+            
+            if let command = step.command {
+                HStack {
+            Text(command)
+                        .font(.system(.subheadline, design: .monospaced))
+                .padding(8)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color(.textBackgroundColor))
+                        .cornerRadius(6)
+                    
+                    Button(action: {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(command, forType: .string)
+                        isCopied = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            isCopied = false
+                        }
+                    }) {
+                        Image(systemName: isCopied ? "checkmark.circle.fill" : "doc.on.doc")
+                            .foregroundColor(isCopied ? .green : .secondary)
+                            .font(.system(size: 18))
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            
+            Text(step.detail)
+                .font(.caption)
+                .foregroundColor(.secondary)
+        }
     }
 }
 
@@ -1097,7 +1412,7 @@ struct ComponentStatusCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             // İkon ve durum
-            HStack {
+                    HStack {
             Image(systemName: iconName)
                     .font(.system(size: 24))
                     .foregroundColor(isInstalled ? .white : accentColor)
@@ -1105,7 +1420,7 @@ struct ComponentStatusCard: View {
                     .background(isInstalled ? accentColor : accentColor.opacity(0.1))
                     .cornerRadius(12)
                 
-                Spacer()
+                        Spacer()
                 
                 Image(systemName: isInstalled ? "checkmark.circle.fill" : "xmark.circle.fill")
                     .font(.system(size: 24))
@@ -1117,8 +1432,8 @@ struct ComponentStatusCard: View {
             Text(title)
                     .font(.headline)
                 Text(description)
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
                     .lineLimit(2)
             }
             
@@ -1136,48 +1451,6 @@ struct ComponentStatusCard: View {
         .frame(maxWidth: .infinity)
         .background(Color(.controlBackgroundColor))
         .cornerRadius(16)
-    }
-}
-
-struct InstallCommandView: View {
-    let title: String
-    let command: String
-    let iconName: String
-    let color: Color
-    @State private var isCopied = false
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Image(systemName: iconName)
-                    .foregroundColor(color)
-            Text(title)
-                    .fontWeight(.medium)
-            }
-            
-            HStack {
-            Text(command)
-                    .font(.system(.subheadline, design: .monospaced))
-                .padding(8)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color(.textBackgroundColor))
-                    .cornerRadius(6)
-                
-                Button(action: {
-                    NSPasteboard.general.clearContents()
-                    NSPasteboard.general.setString(command, forType: .string)
-                    isCopied = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        isCopied = false
-                    }
-                }) {
-                    Image(systemName: isCopied ? "checkmark.circle.fill" : "doc.on.doc")
-                        .foregroundColor(isCopied ? .green : .secondary)
-                        .font(.system(size: 18))
-                }
-                .buttonStyle(.plain)
-            }
-        }
     }
 }
 
