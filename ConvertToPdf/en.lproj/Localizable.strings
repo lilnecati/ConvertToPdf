@@ -1,0 +1,140 @@
+/* 
+  Localizable.strings
+  English Language File
+*/
+
+// General
+"app_name" = "Convert to PDF";
+"app_description" = "Convert your documents to PDF format";
+"developer" = "Developer: Necati YILDIRIM";
+
+// Main Screen
+"header_title" = "PDF Converter";
+"drop_files_here" = "Drop files here";
+"select_format" = "Select format:";
+"start_conversion" = "Start Conversion";
+"cancel" = "Cancel";
+"drop_area_hint" = "Drop files here or click to select";
+"output_format" = "Output Format";
+"select_conversion_format" = "Select conversion format";
+"recent_conversions" = "Recent Conversions";
+"deleted" = "Deleted";
+"select_files" = "Select Files";
+"convert" = "Convert";
+"ok" = "OK";
+"delete" = "Delete";
+"copy" = "Copy";
+"copied" = "Copied";
+"change" = "Change";
+
+// Batch Conversion
+"batch_title" = "Batch Conversion";
+"queue_files" = "Queued Files";
+"file_name" = "File Name";
+"file_size" = "Size";
+"file_status" = "Status";
+"clear_all" = "Clear All";
+"start_batch" = "Start Batch Conversion";
+"batch_conversion" = "Batch Conversion";
+"batch_conversion_description" = "Convert multiple files at once";
+"add_files" = "Add Files";
+"stop_conversion" = "Stop Conversion";
+"conversion_in_progress" = "Conversion in progress...";
+"conversion_completed" = "Conversion completed";
+"conversion_failed" = "Conversion failed";
+"conversion_cancelled" = "Conversion cancelled";
+
+// Settings
+"settings" = "Settings";
+"general_settings" = "General Settings";
+"language" = "Language";
+"system_language" = "System Language";
+"turkish" = "Turkish";
+"english" = "English";
+"theme" = "Theme";
+"light_mode" = "Light Mode";
+"dark_mode" = "Dark Mode";
+"output_folder" = "Output Folder";
+"select_folder" = "Select Folder";
+"output_directory" = "Output Directory";
+"open_after_conversion" = "Open after conversion";
+"overwrite_existing" = "Overwrite existing files";
+
+// Language Settings
+"language_settings" = "Language Settings";
+"current_language" = "Current Language";
+"available_languages" = "Available Languages";
+"active" = "Active";
+"language_change" = "Language Change";
+"language_change_message" = "The application needs to restart to apply the language change. Do you want to continue?";
+"restart_required_title" = "Restart Required";
+"restart_required_message" = "The application needs to restart to apply the language change. Do you want to restart now?";
+"restart_now" = "Restart Now";
+
+// Notifications
+"processing" = "Processing...";
+"conversion_success" = "Conversion Successful!";
+"file_added" = "File added";
+"file_removed" = "File removed";
+
+// Statuses
+"waiting" = "Waiting";
+"processing" = "Processing";
+"completed" = "Completed";
+"failed" = "Failed";
+
+// Requirements
+"requirements" = "Requirements";
+"req_title" = "Required Components";
+"req_description" = "The following components are required for the application to work properly:";
+"req_prerequisite" = "Prerequisite";
+"req_component" = "Component";
+
+"req_homebrew_title" = "Installing Homebrew";
+"req_homebrew_desc" = "Homebrew is a package manager for macOS that we'll use to install other required components.";
+"req_homebrew_step1_title" = "Open Terminal";
+"req_homebrew_step1_detail" = "Open Terminal application on your Mac.";
+"req_homebrew_step2_title" = "Install Homebrew";
+"req_homebrew_step2_detail" = "Run the following command to install Homebrew:";
+"req_homebrew_step3_title" = "Verify Installation";
+"req_homebrew_step3_detail" = "Verify that Homebrew is installed correctly:";
+
+"req_libreoffice_title" = "Installing LibreOffice";
+"req_libreoffice_desc" = "LibreOffice is required for converting office documents.";
+"req_libreoffice_step1_title" = "Install LibreOffice";
+"req_libreoffice_step1_detail" = "Run the following command to install LibreOffice:";
+"req_libreoffice_step2_title" = "Verify Installation";
+"req_libreoffice_step2_detail" = "Verify that LibreOffice is installed correctly:";
+
+"req_tesseract_title" = "Installing Tesseract OCR";
+"req_tesseract_desc" = "Tesseract is required for OCR (Optical Character Recognition) functionality.";
+"req_tesseract_step1_title" = "Install Tesseract";
+"req_tesseract_step1_detail" = "Run the following command to install Tesseract and language data:";
+"req_tesseract_step2_title" = "Verify Installation";
+"req_tesseract_step2_detail" = "Verify that Tesseract is installed correctly:";
+
+"req_imagemagick_title" = "Installing ImageMagick";
+"req_imagemagick_desc" = "ImageMagick is required for image processing and conversion.";
+"req_imagemagick_step1_title" = "Install ImageMagick";
+"req_imagemagick_step1_detail" = "Run the following command to install ImageMagick:";
+"req_imagemagick_step2_title" = "Verify Installation";
+"req_imagemagick_step2_detail" = "Verify that ImageMagick is installed correctly:";
+
+"status" = "Status";
+"installation" = "Installation";
+"general_status" = "General Status";
+"installed_components" = "Installed\nComponents";
+"ready" = "Ready";
+"missing_component" = "Missing\nComponent";
+"how_to_install" = "How to Install?";
+"installation_instruction_info" = "Switch to 'Installation' tab for setup instructions";
+"goto_installation_page" = "Go to Installation Page";
+"installation_steps" = "Installation Steps";
+"goto_source_location" = "Go to Source File Location";
+"open_source_file" = "Open Source File";
+"sound_notifications" = "Sound Notifications";
+"play_sound_on_completion" = "Play sound when conversion completes";
+"test_sound_notification" = "Test Sound Notification";
+"components" = "Components";
+"installed" = "Installed";
+"not_installed" = "Not Installed"; 

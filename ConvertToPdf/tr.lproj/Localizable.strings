@@ -1,0 +1,173 @@
+/* 
+  Localizable.strings
+  Türkçe Dil Dosyası
+*/
+
+// Genel
+"app_name" = "PDF'ye Dönüştür";
+"app_description" = "Belgelerinizi PDF formatına dönüştürün";
+"developer" = "Geliştirici: Necati YILDIRIM";
+
+// Ana Ekran
+"header_title" = "PDF Dönüştürücü";
+"drop_files_here" = "Dosyaları buraya sürükleyin";
+"select_format" = "Format seçin:";
+"start_conversion" = "Dönüştürmeyi Başlat";
+"cancel" = "İptal";
+"drop_area_hint" = "Dosyaları buraya sürükleyin veya tıklayarak seçin";
+"output_format" = "Çıktı Formatı";
+"select_conversion_format" = "Dönüştürme formatını seçin";
+"recent_conversions" = "Son Dönüşümler";
+"deleted" = "Silindi";
+"no_conversions_yet" = "Henüz dönüştürme yok";
+"converting" = "Dönüştürülüyor...";
+"start_batch_conversion" = "Toplu Dönüştürmeyi Başlat";
+"selected_files" = "Seçilen Dosyalar";
+"select_files" = "Dosya Seç";
+"convert" = "Dönüştür";
+"ok" = "Tamam";
+"delete" = "Sil";
+"copy" = "Kopyala";
+"copied" = "Kopyalandı";
+"change" = "Değiştir";
+
+// Dosya İşlemleri
+"goto_file_location" = "Dosya Konumuna Git";
+"goto_source_location" = "Kaynak Dosya Konumuna Git";
+"open_file" = "Dosyayı Aç";
+"open_source_file" = "Kaynak Dosyayı Aç";
+"remove_from_list" = "Listeden Kaldır";
+
+// Hata ve Uyarılar
+"error" = "Hata";
+"unknown_error" = "Bilinmeyen bir hata oluştu";
+"file_exists_title" = "Dosya Zaten Var";
+"file_exists_message" = "\"%@\" dosyası \"%@\" klasöründe zaten mevcut. Üzerine yazmak istiyor musunuz?";
+"duplicate_file_title" = "Yinelenen Dosya";
+"duplicate_file_message" = "\"%@\" dosyası zaten listede mevcut.";
+"existing" = "Mevcut";
+"new" = "Yeni";
+"replace" = "Değiştir";
+
+// Ayarlar ve Gereksinimler
+"settings" = "Ayarlar";
+"settings_help" = "Uygulama ayarlarını yapılandırın";
+"requirements" = "Gereksinimler";
+"requirements_help" = "Gerekli bileşenleri kontrol edin";
+"req_title" = "Gerekli Bileşenler";
+"req_prerequisite" = "Ön Koşul";
+"req_component" = "Bileşen";
+"installed" = "Kurulu";
+"not_installed" = "Kurulu Değil";
+"general_settings" = "Genel Ayarlar";
+"output_directory" = "Çıktı Dizini";
+"open_after_conversion" = "Dönüştürme sonrası aç";
+"overwrite_existing" = "Mevcut dosyaların üzerine yaz";
+
+// Gereksinim Başlıkları
+"req_homebrew_title" = "Homebrew Kurulumu";
+"req_homebrew_desc" = "Homebrew, diğer gerekli bileşenleri kurmak için kullanacağımız macOS paket yöneticisidir.";
+"req_homebrew_step1_title" = "Terminal'i Aç";
+"req_homebrew_step1_detail" = "Mac'inizde Terminal uygulamasını açın.";
+"req_homebrew_step2_title" = "Homebrew'u Kur";
+"req_homebrew_step2_detail" = "Homebrew'u kurmak için aşağıdaki komutu çalıştırın:";
+"req_homebrew_step3_title" = "Kurulumu Doğrula";
+"req_homebrew_step3_detail" = "Homebrew'un doğru şekilde kurulduğunu doğrulayın:";
+
+"req_libreoffice_title" = "LibreOffice Kurulumu";
+"req_libreoffice_desc" = "LibreOffice, ofis belgelerini dönüştürmek için gereklidir.";
+"req_libreoffice_step1_title" = "LibreOffice'i Kur";
+"req_libreoffice_step1_detail" = "LibreOffice'i kurmak için aşağıdaki komutu çalıştırın:";
+"req_libreoffice_step2_title" = "Kurulumu Doğrula";
+"req_libreoffice_step2_detail" = "LibreOffice'in doğru şekilde kurulduğunu doğrulayın:";
+
+"req_tesseract_title" = "Tesseract OCR Kurulumu";
+"req_tesseract_desc" = "Tesseract, OCR (Optik Karakter Tanıma) işlevi için gereklidir.";
+"req_tesseract_step1_title" = "Tesseract'ı Kur";
+"req_tesseract_step1_detail" = "Tesseract ve dil verilerini kurmak için aşağıdaki komutu çalıştırın:";
+"req_tesseract_step2_title" = "Kurulumu Doğrula";
+"req_tesseract_step2_detail" = "Tesseract'ın doğru şekilde kurulduğunu doğrulayın:";
+
+"req_imagemagick_title" = "ImageMagick Kurulumu";
+"req_imagemagick_desc" = "ImageMagick, görüntü işleme ve dönüştürme için gereklidir.";
+"req_imagemagick_step1_title" = "ImageMagick'i Kur";
+"req_imagemagick_step1_detail" = "ImageMagick'i kurmak için aşağıdaki komutu çalıştırın:";
+"req_imagemagick_step2_title" = "Kurulumu Doğrula";
+"req_imagemagick_step2_detail" = "ImageMagick'in doğru şekilde kurulduğunu doğrulayın:";
+
+// Toplu Dönüştürme
+"batch_title" = "Toplu Dönüştürme";
+"queue_files" = "Sıradaki Dosyalar";
+"file_name" = "Dosya Adı";
+"file_size" = "Boyut";
+"file_status" = "Durum";
+"clear_all" = "Tümünü Temizle";
+"start_batch" = "Toplu Dönüştürmeyi Başlat";
+"stop_conversion" = "Dönüştürmeyi Durdur";
+"conversion_in_progress" = "Dönüştürme devam ediyor...";
+"conversion_completed" = "Dönüştürme tamamlandı";
+"conversion_failed" = "Dönüştürme başarısız oldu";
+"conversion_cancelled" = "Dönüştürme iptal edildi";
+"batch_conversion" = "Toplu Dönüştürme";
+"batch_conversion_description" = "Birden fazla dosyayı aynı anda dönüştürün";
+"add_files" = "Dosya Ekle";
+
+// Ayarlar
+"language" = "Dil";
+"system_language" = "Sistem Dili";
+"turkish" = "Türkçe";
+"english" = "İngilizce";
+"theme" = "Tema";
+"light_mode" = "Açık Mod";
+"dark_mode" = "Koyu Mod";
+"output_folder" = "Çıktı Klasörü";
+"select_folder" = "Klasör Seç";
+
+// Bildirimler
+"processing" = "İşleniyor...";
+"conversion_success" = "Dönüştürme Başarılı!";
+"conversion_failed" = "Dönüştürme Başarısız!";
+"file_added" = "Dosya eklendi";
+"file_removed" = "Dosya kaldırıldı";
+
+// Durumlar
+"waiting" = "Bekliyor";
+"processing" = "İşleniyor";
+"completed" = "Tamamlandı";
+"failed" = "Başarısız";
+
+// Gereksinimler
+"req_description" = "Uygulamanın düzgün çalışması için aşağıdaki bileşenler gereklidir:";
+
+// Dil Değişikliği
+"language_change" = "Dil Değişikliği";
+"language_change_message" = "Dil değişikliğinin uygulanması için uygulama yeniden başlatılmalıdır. Devam etmek istiyor musunuz?";
+"restart_required_title" = "Yeniden Başlatma Gerekiyor";
+"restart_required_message" = "Dil değişikliğinin uygulanması için uygulama yeniden başlatılmalıdır. Şimdi yeniden başlatmak istiyor musunuz?";
+"restart_now" = "Şimdi Yeniden Başlat";
+"ok" = "Tamam";
+"cancel" = "İptal";
+
+// Dil Ayarları
+"language_settings" = "Dil Ayarları";
+"current_language" = "Mevcut Dil";
+"available_languages" = "Kullanılabilir Diller";
+"active" = "Aktif";
+
+// Yeni eklenen çeviriler
+"status" = "Durum";
+"installation" = "Kurulum";
+"general_status" = "Genel Durum";
+"installed_components" = "Kurulu\nBileşen";
+"ready" = "Hazır";
+"missing_component" = "Eksik\nBileşen";
+"how_to_install" = "Nasıl Kurulur?";
+"installation_instruction_info" = "Kurulum talimatları için 'Kurulum' sekmesine geçin";
+"goto_installation_page" = "Kurulum Sayfasına Git";
+"installation_steps" = "Kurulum Adımları";
+"sound_notifications" = "Ses Bildirimleri";
+"play_sound_on_completion" = "Dönüştürme tamamlandığında ses çal";
+"test_sound_notification" = "Ses Bildirimini Test Et";
+"open_source_file" = "Kaynak Dosyayı Aç";
+"goto_source_location" = "Kaynak Dosya Konumuna Git";
+"components" = "Bileşenler"; 

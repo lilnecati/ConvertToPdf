@@ -10,7 +10,7 @@ struct AppSettingsView: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack {
-                Text("Ayarlar")
+                Text("settings".localized)
                     .font(.title)
                     .bold()
                 Spacer()
@@ -28,7 +28,7 @@ struct AppSettingsView: View {
             GroupBox(label: 
                         HStack {
                             Image(systemName: "doc.text")
-                            Text("Dönüştürme Formatı")
+                            Text("output_format".localized)
                         }
             ) {
                 Picker("Format", selection: $selectedFormat) {
@@ -44,10 +44,10 @@ struct AppSettingsView: View {
             GroupBox(label: 
                         HStack {
                             Image(systemName: "speaker.wave.2")
-                            Text("Ses Bildirimleri")
+                            Text("sound_notifications".localized)
                         }
             ) {
-                Toggle("Dönüştürme tamamlandığında ses çal", isOn: $enableSounds)
+                Toggle("play_sound_on_completion".localized, isOn: $enableSounds)
                     .padding(.top, 10)
                     .onChange(of: enableSounds) { _, newValue in
                         SoundManager.shared.toggleSounds(enabled: newValue)
@@ -63,7 +63,7 @@ struct AppSettingsView: View {
                     SoundManager.shared.playCompletionSound()
                 }
             }) {
-                Label("Ses Bildirimini Test Et", systemImage: "play.circle")
+                Label("test_sound_notification".localized, systemImage: "play.circle")
             }
             .disabled(!enableSounds)
             .buttonStyle(.borderedProminent)

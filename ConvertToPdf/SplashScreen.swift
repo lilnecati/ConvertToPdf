@@ -7,6 +7,7 @@ struct SplashScreen: View {
     @State private var rotation: Double = 0
     @State private var dotOpacities: [Double] = [0.3, 0.3, 0.3]
     @State private var timers: [Timer] = []
+    @ObservedObject private var languageManager = LanguageManager.shared
     
     var body: some View {
         if isActive {
@@ -34,7 +35,7 @@ struct SplashScreen: View {
                     }
                     
                     // Uygulama Adı
-                    Text("ConvertToPdf")
+                    Text("app_name".localized)
                         .font(.system(size: 36, weight: .bold, design: .rounded))
                         .foregroundColor(.primary)
                     
@@ -51,7 +52,7 @@ struct SplashScreen: View {
                     
                     // Geliştirici Bilgisi
                     VStack(spacing: 8) {
-                        Text("Tüm dosyaları PDF'ye dönüştür")
+                        Text("app_description".localized)
                             .font(.system(size: 16))
                             .foregroundColor(.secondary)
                         
@@ -66,7 +67,7 @@ struct SplashScreen: View {
                                         .foregroundColor(.blue)
                                 )
                                 
-                            Text("Developer: Necati YILDIRIM")
+                            Text("developer".localized)
                                 .font(.system(size: 14, weight: .medium))
                                 .foregroundColor(.blue)
                         }

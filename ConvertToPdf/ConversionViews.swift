@@ -11,7 +11,7 @@ struct ConversionProgressView: View {
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Dönüştürülüyor...")
+            Text("converting".localized)
                 .font(.headline)
             
             ProgressView(value: progress)
