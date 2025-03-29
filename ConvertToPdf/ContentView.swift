@@ -433,7 +433,7 @@ struct BatchConversionView: View {
     var body: some View {
         VStack(spacing: 16) {
             // Başlık
-            HStack {
+                                    HStack {
                 HStack(spacing: 10) {
                     Image(systemName: "doc.fill.badge.plus")
                         .font(.system(size: 24, weight: .bold))
@@ -465,7 +465,7 @@ struct BatchConversionView: View {
                         .foregroundColor(.blue)
                     Text("drop_area_hint".localized)
                         .font(.callout)
-                        .foregroundColor(.secondary)
+                                            .foregroundColor(.secondary)
                 }
             )
             .onTapGesture {
@@ -506,7 +506,7 @@ struct BatchConversionView: View {
                     Text("output_format".localized)
                         .font(.headline)
                     Text("select_conversion_format".localized)
-                        .font(.caption)
+                                    .font(.caption)
                         .foregroundColor(.secondary)
                 }
                 
@@ -578,8 +578,8 @@ struct BatchConversionView: View {
                         // İptal butonu
                         Button(action: {
                             batchManager.cancelProcessing()
-                        }) {
-                            HStack {
+                                    }) {
+                                        HStack {
                                 Image(systemName: "xmark.circle.fill")
                                 Text("İptal Et")
                             }
@@ -599,14 +599,14 @@ struct BatchConversionView: View {
                     }) {
                         HStack {
                             if batchManager.isProcessing {
-                                ProgressView()
-                                    .scaleEffect(0.8)
-                                    .padding(.trailing, 8)
+                                                ProgressView()
+                                                    .scaleEffect(0.8)
+                                                    .padding(.trailing, 8)
                                 Text("conversion_in_progress".localized)
-                            } else {
-                                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                                            } else {
+                                                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
                                 Text("start_batch".localized)
-                                    .fontWeight(.semibold)
+                                                    .fontWeight(.semibold)
                             }
                         }
                         .padding(.vertical, 12)
@@ -716,7 +716,7 @@ struct DuplicateFileErrorView: View {
                     Text("ok".localized)
                         .fontWeight(.medium)
                         .frame(width: 120)
-                        .padding(.vertical, 12)
+                                        .padding(.vertical, 12)
                         .background(Color.blue)
                         .foregroundColor(.white)
                         .cornerRadius(8)
@@ -800,8 +800,8 @@ struct JobRowView: View {
                         ProgressView(value: job.progress)
                             .frame(width: 80)
                         Text("\(Int(job.progress * 100))%")
-                            .font(.caption)
-                            .foregroundColor(.secondary)
+                                            .font(.caption)
+                                            .foregroundColor(.secondary)
                             .frame(width: 40, alignment: .trailing)
                     }
                 case .completed:
@@ -920,7 +920,7 @@ struct ContentView: View {
                     Spacer()
                 }
             }
-            .frame(minWidth: 450, maxWidth: 650, minHeight: 500)
+                .frame(minWidth: 450, maxWidth: 650, minHeight: 500)
             // Özel NavBar eklemek için toolbar özelliğini kaldıralım
             .safeAreaInset(edge: .top) {
                 HStack(spacing: 16) {
@@ -941,7 +941,7 @@ struct ContentView: View {
                     // Language menu
                     Menu {
                         ForEach(LanguageOption.allCases, id: \.self) { language in
-                            Button(action: {
+                    Button(action: {
                                 LanguageManager.shared.setLanguage(language)
                                 showRestartAlert = LanguageManager.shared.showRestartAlert
                             }) {
@@ -1160,25 +1160,25 @@ struct RequirementsView: View {
                             .font(.headline)
                         
                         ComponentStatusCard(
-                            title: "LibreOffice",
+                    title: "LibreOffice",
                             description: "Office dosyaları için gerekli",
-                            isInstalled: installInfo.libreOfficeInstalled,
+                    isInstalled: installInfo.libreOfficeInstalled,
                             iconName: "doc.fill",
                             accentColor: .blue
-                        )
-                        
+                )
+                
                         ComponentStatusCard(
-                            title: "Tesseract OCR",
+                    title: "Tesseract OCR",
                             description: "Metin tanıma işlemleri için gerekli",
-                            isInstalled: installInfo.tesseractInstalled,
+                    isInstalled: installInfo.tesseractInstalled,
                             iconName: "text.viewfinder",
                             accentColor: .purple
-                        )
-                        
+                )
+                
                         ComponentStatusCard(
-                            title: "ImageMagick",
+                    title: "ImageMagick",
                             description: "Görsel işleme için gerekli",
-                            isInstalled: installInfo.imageMagickInstalled, 
+                    isInstalled: installInfo.imageMagickInstalled, 
                             iconName: "wand.and.stars",
                             accentColor: .orange
                         )
@@ -1220,8 +1220,8 @@ struct RequirementsView: View {
                                     .cornerRadius(8)
                             }
                             .buttonStyle(.plain)
-                        }
-                        .padding()
+                }
+                .padding()
                         .background(Color(.controlBackgroundColor))
                         .cornerRadius(16)
                     }
