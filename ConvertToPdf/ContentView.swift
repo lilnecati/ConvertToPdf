@@ -909,7 +909,6 @@ struct ContentView: View {
                     }
                     .padding(.horizontal)
                     
-                    // Toplu dönüştürme kartı
                     BatchConversionView(
                         batchManager: batchManager,
                         selectedFormat: $selectedConversionType,
@@ -920,11 +919,9 @@ struct ContentView: View {
                     Spacer()
                 }
             }
-                .frame(minWidth: 450, maxWidth: 650, minHeight: 500)
-            // Özel NavBar eklemek için toolbar özelliğini kaldıralım
+                .frame(minWidth: 550, maxWidth: 800, minHeight: 700)
             .safeAreaInset(edge: .top) {
                 HStack(spacing: 16) {
-                    // Requirements button
                     Button(action: {
                         withAnimation {
                             showRequirements.toggle()
@@ -938,7 +935,6 @@ struct ContentView: View {
                     Divider()
                         .frame(height: 16)
                     
-                    // Language menu
                     Menu {
                         ForEach(LanguageOption.allCases, id: \.self) { language in
                     Button(action: {
@@ -977,7 +973,6 @@ struct ContentView: View {
                     Divider()
                         .frame(height: 16)
                     
-                    // Settings button
                     Button(action: {
                         withAnimation {
                             showAppSettings.toggle()
@@ -999,7 +994,6 @@ struct ContentView: View {
                 .background(Color.gray.opacity(0.05))
             }
             
-            // Sağ taraf - Son dönüşümler
             RecentConversionsView(
                 recentConversions: recentConversionsManager.recentConversions,
                 onItemSelected: { record in
